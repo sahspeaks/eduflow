@@ -12,6 +12,13 @@ import FeaturedCourses from "./components/FeaturedCourses";
 import Footer from "./components/layout/Footer";
 import CourseCatalog from "./pages/courses/CourseCatalog";
 import CourseLearning from "./pages/courses/CourseLearning";
+import TutorDashboard from "./pages/tutor/TutorDashboard";
+import TutorCourses from "./pages/tutor/TutorCourses";
+import CourseCreation from "./pages/tutor/CourseCreation";
+import CourseEdit from "./pages/tutor/CourseEdit";
+import TutorAnalytics from "./pages/tutor/TutorAnalytics";
+import TutorMessages from "./pages/tutor/TutorMessages";
+import MessageConversation from "./pages/tutor/MessageConversation";
 const ProtectedRoute = ({ children, roles }) => {
   // const { user, isLoading } = useAuth();
   const user = { role: "student" };
@@ -134,6 +141,78 @@ function App() {
                 <ProtectedRoute roles={["student"]}>
                   <Layout>
                     <CourseLearning />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            {/* Protected Tutor Routes */}
+            <Route
+              path="/tutor/dashboard"
+              element={
+                <ProtectedRoute allowedRoles={["tutor"]}>
+                  <Layout>
+                    <TutorDashboard />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/tutor/courses"
+              element={
+                <ProtectedRoute allowedRoles={["tutor"]}>
+                  <Layout>
+                    <TutorCourses />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/tutor/courses/create"
+              element={
+                <ProtectedRoute allowedRoles={["tutor"]}>
+                  <Layout>
+                    <CourseCreation />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/tutor/courses/:courseId/edit"
+              element={
+                <ProtectedRoute allowedRoles={["tutor"]}>
+                  <Layout>
+                    <CourseEdit />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/tutor/analytics"
+              element={
+                <ProtectedRoute allowedRoles={["tutor"]}>
+                  <Layout>
+                    <TutorAnalytics />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/tutor/messages"
+              element={
+                <ProtectedRoute allowedRoles={["tutor"]}>
+                  <Layout>
+                    <TutorMessages />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/tutor/messages/:studentId"
+              element={
+                <ProtectedRoute allowedRoles={["tutor"]}>
+                  <Layout>
+                    <MessageConversation />
                   </Layout>
                 </ProtectedRoute>
               }
