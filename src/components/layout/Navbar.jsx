@@ -1390,6 +1390,7 @@ import {
 } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
 import { useCart } from "../../context/CartContext";
+import Brand1 from "../../static/Brand1.png";
 
 export default function SidebarNavigation({ isSidebarOpen, setIsSidebarOpen }) {
   const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
@@ -1401,7 +1402,7 @@ export default function SidebarNavigation({ isSidebarOpen, setIsSidebarOpen }) {
 
   // Mock authentication state - this would typically come from an auth context
   const isAuthenticated = true;
-  const userRole = "student"; // Possible values: 'student', 'college', 'tutor', 'admin' from {user.role}
+  const userRole = "college"; // Possible values: 'student', 'college', 'tutor', 'admin' from {user.role}
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -1612,7 +1613,9 @@ export default function SidebarNavigation({ isSidebarOpen, setIsSidebarOpen }) {
           {/* Mobile Sidebar Header */}
           <div className="flex items-center justify-between p-4 border-b">
             <Link to="/" className="flex items-center space-x-2">
-              <BookOpen className="h-8 w-8 text-indigo-600" />
+              {/* <BookOpen className="h-8 w-8 text-indigo-600" /> */}
+              <img src={Brand1} height={50} width={50} alt="" />
+
               <span className="text-2xl font-bold text-gray-900">EduFlow</span>
             </Link>
             {/* Close Button on the Right */}
@@ -1658,20 +1661,23 @@ export default function SidebarNavigation({ isSidebarOpen, setIsSidebarOpen }) {
           <div className="flex items-center justify-between p-4 border-b">
             {isSidebarOpen ? (
               <Link to="/" className="flex items-center space-x-2">
-                <BookOpen className="h-8 w-8 text-indigo-600" />
+                {/* <BookOpen className="h-8 w-8 text-indigo-600" /> */}
+                <img src={Brand1} height={50} width={50} alt="" />
+
                 <span className="text-2xl font-bold text-gray-900">
                   EduFlow
                 </span>
               </Link>
             ) : (
               <Link to="/" className="mx-auto">
-                <BookOpen className="h-8 w-8 text-indigo-600" />
+                {/* <BookOpen className="h-8 w-8 text-indigo-600" /> */}
+                <img src={Brand1} className="h-12 w-12 mr-16 -ml-4" alt="" />
               </Link>
             )}
 
             {/* Sidebar Toggle Button */}
             <button
-              className="ml-auto p-1 hover:bg-gray-100 rounded-full"
+              className="-ml-4 p-1 hover:bg-gray-100 rounded-full"
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
             >
               {isSidebarOpen ? (

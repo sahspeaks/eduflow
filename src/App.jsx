@@ -19,9 +19,14 @@ import CourseEdit from "./pages/tutor/CourseEdit";
 import TutorAnalytics from "./pages/tutor/TutorAnalytics";
 import TutorMessages from "./pages/tutor/TutorMessages";
 import MessageConversation from "./pages/tutor/MessageConversation";
+import CollegeDashboard from "./pages/college/CollegeDashboard";
+import CoursePurchase from "./pages/college/CoursePurchase";
+import StudentManagement from "./pages/college/StudentManagement";
+import CollegeAnalytics from "./pages/college/CollegeAnalytics";
+import CollegeSupport from "./pages/college/CollegeSupport";
 const ProtectedRoute = ({ children, roles }) => {
   // const { user, isLoading } = useAuth();
-  const user = { role: "student" };
+  const user = { role: "college" };
 
   const isLoading = false;
   if (isLoading) {
@@ -114,7 +119,7 @@ function App() {
                 </Layout>
               }
             />
-            {/* Protected routes */}
+            {/*Student Protected routes */}
             <Route
               path="/student/dashboard"
               element={
@@ -213,6 +218,57 @@ function App() {
                 <ProtectedRoute allowedRoles={["tutor"]}>
                   <Layout>
                     <MessageConversation />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            {/* College Protected Routes */}
+            <Route
+              path="/college/dashboard"
+              element={
+                <ProtectedRoute allowedRoles={["college"]}>
+                  <Layout>
+                    <CollegeDashboard />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/college/courses"
+              element={
+                <ProtectedRoute allowedRoles={["college"]}>
+                  <Layout>
+                    <CoursePurchase />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/college/students"
+              element={
+                <ProtectedRoute allowedRoles={["college"]}>
+                  <Layout>
+                    <StudentManagement />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/college/analytics"
+              element={
+                <ProtectedRoute allowedRoles={["college"]}>
+                  <Layout>
+                    <CollegeAnalytics />
+                  </Layout>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/college/support"
+              element={
+                <ProtectedRoute allowedRoles={["college"]}>
+                  <Layout>
+                    <CollegeSupport />
                   </Layout>
                 </ProtectedRoute>
               }

@@ -1,6 +1,6 @@
 import React from "react";
 import { BookOpen, Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
-
+import Brand1 from "../../static/Brand1.png";
 export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white pt-20 pb-10">
@@ -8,7 +8,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div>
             <div className="flex items-center space-x-2 mb-6">
-              <BookOpen className="h-8 w-8 text-indigo-400" />
+              {/* <BookOpen className="h-8 w-8 text-indigo-400" /> */}
+              <img src={Brand1} height={50} width={50} alt="" />
               <span className="text-2xl font-bold">EduFlow</span>
             </div>
             <p className="text-gray-400 mb-6">
