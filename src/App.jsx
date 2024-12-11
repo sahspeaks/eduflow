@@ -26,7 +26,7 @@ import CollegeAnalytics from "./pages/college/CollegeAnalytics";
 import CollegeSupport from "./pages/college/CollegeSupport";
 const ProtectedRoute = ({ children, roles }) => {
   // const { user, isLoading } = useAuth();
-  const user = { role: "college" };
+  const user = { role: "student" };
 
   const isLoading = false;
   if (isLoading) {
