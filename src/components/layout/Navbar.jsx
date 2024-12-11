@@ -1402,7 +1402,7 @@ export default function SidebarNavigation({ isSidebarOpen, setIsSidebarOpen }) {
 
   // Mock authentication state - this would typically come from an auth context
   const isAuthenticated = true;
-  const userRole = "college"; // Possible values: 'student', 'college', 'tutor', 'admin' from {user.role}
+  const userRole = "student"; // Possible values: 'student', 'college', 'tutor', 'admin' from {user.role}
 
   const totalItems = items.reduce((sum, item) => sum + item.quantity, 0);
 
